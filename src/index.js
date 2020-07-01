@@ -2,5 +2,18 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import App from './app'
 
-const wrapper = document.getElementById("container");
-wrapper ? ReactDOM.render(<App />, wrapper) : false;
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+
+import './style.css';
+
+
+const store = createStore(rootReducer)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
