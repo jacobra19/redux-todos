@@ -1,0 +1,46 @@
+{
+  "name": "wildboar",
+  "version": "1.0.1",
+  "description": "Boilerplate for frontend starter project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development",
+    "storybook": "start-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobra19/wildboar.git"
+  },
+  "author": "Yakov Rakhamimov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacobra19/wildboar/issues"
+  },
+  "homepage": "https://github.com/jacobra19/wildboar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.27.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "typescript": "^3.9.5",
+    "uuid": "^8.1.0"
+  }
+}
