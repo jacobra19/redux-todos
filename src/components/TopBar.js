@@ -1,5 +1,6 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Typography,Badge } from "@material-ui/core";
+import BeenhereIcon from '@material-ui/icons/Beenhere';
 
 import reduxLogo from "../assets/redux.png";
 
@@ -24,11 +25,23 @@ const TopBar = () => {
         )
     }
 
+    const renderBadge = () => {
+
+        return (
+            <Badge badgeContent={4} color="secondary">
+                <BeenhereIcon style={{fontSize:20}}/>
+            </Badge>
+        )
+    }
+
     return (
         <AppBar position="static">
-            <Toolbar variant="dense">
-                {renderImage()}
-                {renderTitle()}
+            <Toolbar variant="dense" style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                <div style={{display:'flex',alignItems:'center'}}>
+                    {renderImage()}
+                    {renderTitle()}
+                </div>
+                {renderBadge()}
             </Toolbar>
         </AppBar>
     )

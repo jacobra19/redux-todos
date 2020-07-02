@@ -11,7 +11,7 @@ const MainContainer = () => {
         <Container maxWidth="xs" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <AddTodo />
             <VisibleTodoList />
-            <Footer />
+            {/* <Footer /> */}
         </Container>
     )
 }
