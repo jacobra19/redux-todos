@@ -1,10 +1,13 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography,Badge } from "@material-ui/core";
+import { connect } from "react-redux";
+
+import { AppBar, Toolbar, Typography, Badge } from "@material-ui/core";
 import BeenhereIcon from '@material-ui/icons/Beenhere';
 
 import reduxLogo from "../assets/redux.png";
 
-const TopBar = () => {
+
+const TopBar = (props) => {
 
     const renderImage = () => {
         return (
@@ -12,6 +15,10 @@ const TopBar = () => {
                 filter: "invert(1) grayscale(1) brightness(500)",
                 height: 18,
                 marginRight: 10,
+                // transition: `all .8s ease-in-out`,
+                // '&:hover': {
+                //     transform: `rotate(360deg)`
+                // }
             }} />
         )
     }
@@ -28,16 +35,16 @@ const TopBar = () => {
     const renderBadge = () => {
 
         return (
-            <Badge badgeContent={4} color="secondary">
-                <BeenhereIcon style={{fontSize:20}}/>
+            <Badge badgeContent={props.todos.length} color="secondary">
+                <BeenhereIcon style={{ fontSize: 20 }} />
             </Badge>
         )
     }
 
     return (
         <AppBar position="static">
-            <Toolbar variant="dense" style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                <div style={{display:'flex',alignItems:'center'}}>
+            <Toolbar variant="dense" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                     {renderImage()}
                     {renderTitle()}
                 </div>
@@ -47,4 +54,12 @@ const TopBar = () => {
     )
 }
 
-export default TopBar
+
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    };
+};
+
+
+export default connect(mapStateToProps)(TopBar);
