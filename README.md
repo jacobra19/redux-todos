@@ -1,2 +1,2 @@
-# wildboar
-Boilerplate for frontend starter project
+# redux todos
+### simple todo list app with react and redux
