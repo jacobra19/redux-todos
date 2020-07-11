@@ -20,3 +20,15 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
+
+export const completeAll = () => ({
+    type: 'COMPLETE_ALL'
+})
+
+export const uncompleteAll = () => ({
+    type: 'UNCOMPLETE_ALL'
+})
+
+export const deleteAll = () => ({
+    type: 'DELETE_ALL'
+})
