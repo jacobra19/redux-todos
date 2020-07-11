@@ -1,4 +1,6 @@
-const todos = (state = [], action) => {
+const initialState = []
+
+const todos = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
@@ -13,6 +15,18 @@ const todos = (state = [], action) => {
             return state.map(todo =>
                 todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
             )
+        case 'COMPLETE_ALL':
+            return state.map(todo => {
+                return { ...todo, completed: true }
+            })
+        case 'UNCOMPLETE_ALL':
+            return state.map(todo => {
+                return { ...todo, completed: false }
+            })
+        case 'DELETE_ALL':
+            return initialState
+
+
         default:
             return state
     }
