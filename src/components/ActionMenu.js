@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 
+import {completeAll,uncompleteAll,deleteAll} from '../actions'
+
 import { IconButton, Popper, Paper, Badge, ClickAwayListener, MenuList, MenuItem, Divider, Typography } from "@material-ui/core";
 import BeenhereIcon from '@material-ui/icons/Beenhere';
 
@@ -8,18 +10,28 @@ const ActionMenu = (props) => {
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
 
-
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
 
     const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-
         setOpen(false);
     };
+
+    const handleComplete = () => {
+        props.dispatch(completeAll())
+        handleClose()
+    }
+
+    const handleUncomplete = () => {
+        props.dispatch(uncompleteAll())
+        handleClose()
+    }
+
+    const handleDelete = () => {
+        props.dispatch(deleteAll())
+        handleClose()
+    }
 
     return (
         <div>
@@ -42,9 +54,9 @@ const ActionMenu = (props) => {
 
                             </div>
                             <Divider />
-                            <MenuItem dense onClick={handleClose}>Complete</MenuItem>
-                            <MenuItem dense onClick={handleClose}>Uncomplete</MenuItem>
-                            <MenuItem dense onClick={handleClose}>Delete</MenuItem>
+                            <MenuItem dense onClick={handleComplete}>Complete</MenuItem>
+                            <MenuItem dense onClick={handleUncomplete}>Uncomplete</MenuItem>
+                            <MenuItem dense onClick={handleDelete}>Delete</MenuItem>
                         </MenuList>
                     </ClickAwayListener>
                 </Paper>
