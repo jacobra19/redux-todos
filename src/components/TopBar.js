@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from "react-redux";
 
-import { AppBar, Toolbar, Typography, Badge } from "@material-ui/core";
-import BeenhereIcon from '@material-ui/icons/Beenhere';
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 import reduxLogo from "../assets/redux.png";
 
+import ActionMenu from "./ActionMenu";
 
 const TopBar = (props) => {
 
@@ -32,15 +32,6 @@ const TopBar = (props) => {
         )
     }
 
-    const renderBadge = () => {
-
-        return (
-            <Badge badgeContent={props.todos.length} color="secondary">
-                <BeenhereIcon style={{ fontSize: 20 }} />
-            </Badge>
-        )
-    }
-
     return (
         <AppBar position="static">
             <Toolbar variant="dense" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -48,18 +39,10 @@ const TopBar = (props) => {
                     {renderImage()}
                     {renderTitle()}
                 </div>
-                {renderBadge()}
+                <ActionMenu/>
             </Toolbar>
         </AppBar>
     )
 }
 
-
-const mapStateToProps = state => {
-    return {
-        todos: state.todos
-    };
-};
-
-
-export default connect(mapStateToProps)(TopBar);
+export default TopBar;
