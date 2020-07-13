@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 const initialState = []
 
 const todos = (state = initialState, action) => {
@@ -6,7 +8,7 @@ const todos = (state = initialState, action) => {
             return [
                 ...state,
                 {
-                    id: action.id,
+                    id: uuid(),
                     text: action.text,
                     completed: false
                 }
@@ -15,11 +17,16 @@ const todos = (state = initialState, action) => {
             return state.map(todo =>
                 todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
             )
+        case 'DELETE_TODO':
+            return state.filter(todo =>
+                todo.id !== action.id
+            )
+        
         case 'COMPLETE_ALL':
             return state.map(todo => {
                 return { ...todo, completed: true }
             })
-        case 'UNCOMPLETE_ALL':
+        case 'ACTIVATE_ALL':
             return state.map(todo => {
                 return { ...todo, completed: false }
             })
