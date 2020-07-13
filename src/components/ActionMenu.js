@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import {completeAll,uncompleteAll,deleteAll} from '../actions'
+import {completeAll,ActivateAll,deleteAll} from '../actions'
 
 import { IconButton, Popper, Paper, Badge, ClickAwayListener, MenuList, MenuItem, Divider, Typography } from "@material-ui/core";
 import BeenhereIcon from '@material-ui/icons/Beenhere';
@@ -23,8 +23,8 @@ const ActionMenu = (props) => {
         handleClose()
     }
 
-    const handleUncomplete = () => {
-        props.dispatch(uncompleteAll())
+    const handleActive = () => {
+        props.dispatch(ActivateAll())
         handleClose()
     }
 
@@ -55,7 +55,7 @@ const ActionMenu = (props) => {
                             </div>
                             <Divider />
                             <MenuItem dense onClick={handleComplete}>Complete</MenuItem>
-                            <MenuItem dense onClick={handleUncomplete}>Uncomplete</MenuItem>
+                            <MenuItem dense onClick={handleActive}>Active</MenuItem>
                             <MenuItem dense onClick={handleDelete}>Delete</MenuItem>
                         </MenuList>
                     </ClickAwayListener>
